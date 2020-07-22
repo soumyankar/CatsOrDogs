@@ -1,44 +1,78 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cats Or Dogs | Welcome to Firebase Hosting</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cats Or Dogs | Welcome to Firebase Hosting</title>
+  <!-- update the version number as needed -->
+  <script defer src="/__/firebase/7.16.1/firebase-app.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/7.16.1/firebase-auth.js"></script>
+  <script defer src="/__/firebase/7.16.1/firebase-database.js"></script>
+  <script defer src="/__/firebase/7.16.1/firebase-messaging.js"></script>
+  <script defer src="/__/firebase/7.16.1/firebase-storage.js"></script>
+  <!-- initialize the SDK after all desired features are loaded -->
+  <script defer src="/__/firebase/init.js"></script>
+  <script defer src="/__/firebase/7.16.1/firebase-analytics.js"></script>
+  <script defer src="index.js"></script>
+  <!-- Stylesheets -->
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/7.16.1/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/7.16.1/firebase-auth.js"></script>
-    <script defer src="/__/firebase/7.16.1/firebase-database.js"></script>
-    <script defer src="/__/firebase/7.16.1/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/7.16.1/firebase-storage.js"></script>
-    <!-- initialize the SDK after all desired features are loaded -->
-    <script defer src="/__/firebase/init.js"></script>
+  <!-- Bootstrap 4 CSS -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <!-- <script type="text/javascript" src="bootstrap.js"></script> -->
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>This is the start of something beautiful for my new repo - CatsOrDogs!</p>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script type="text/javascript">
+    function getRandomIntInclusive(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+}
+var player1=getRandomIntInclusive(1,10);
+var player2=getRandomIntInclusive(11,20);
+function sample_range(range, n) {
+  var sample = [];
+  for(var i=0; i<n; i++) {
+    sample.push(range.splice(Math.random()*range.length,1));
+  }
+
+  return sample;
+}
+var sample = sample_range([1,2,3,4,5,6,7,8,9,10], 2);
+</script>
+</head>
+<!-- Do not mess with anything before this point. -->
+
+<!-- Start of Body -->
+
+<body>
+  <h1>Welcome to Cats and Dogs!</h1>
+  <p>This website will demonstrate the usage of the Arpad Élo Algorithm, and we will be experimenting on Cats and Dogs! </p>
+  <br>
+  <div class="container">
+    <div class="row">
+      <h5>Let the battle begin!</p>
+        <p>Pretty straightforward: Select the contestant you'd like to see on top.</p>
+      </div>
+      <div  class="row">
+        <div class="col-6" style="padding: 10px;">
+          <button><img id="player1-picture" src="https://via.placeholder.com/650" style="max-width: 350px; max-height: 350px"></button>
+          <p id="player1-name"></p>
+          <p id="player1-breed"></p>
+        </div>
+        <div class="col-6" style="padding: 10px;">
+          <button><img  id="player2-picture" src="https://via.placeholder.com/350" style="max-width: 350px; max-height: 350px"></button>
+          <p id="player2-name"></p>
+          <p id="player2-breed"></p>
+        </div>
+      </div>
     </div>
     <p id="load">Firebase SDK Loading&hellip;</p>
+    <!-- End of Container Division -->
+
+    <!-- Do not mess with anything beyond this point. -->
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {
@@ -62,5 +96,11 @@
         }
       });
     </script>
-  </body>
+
+    <!-- Firebase SDK's required. -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<!-- TODO: Add SDKs for Firebase products that you want to use
+  https://firebase.google.com/docs/web/setup#available-libraries -->
+  <!-- Initialize Firebase -->
+</body>
 </html>

@@ -1,14 +1,35 @@
 window.chartColors = {
-    red: 'rgb(255, 99, 132)',
-    orange: 'rgb(255, 159, 64)',
-    yellow: 'rgb(255, 205, 86)',
+    // Colors I added, for better contrast.
+    sienna: 'rgb(160,82,45)',
+    darkslategray: 'rgb(47, 79, 79)',
+    seagreen: 'rgb(46, 139, 87)',
+    darkred: 'rgb(139, 0, 0)',
+    olive: 'rgb(128, 128, 0)',
+    purple: 'rgb(127, 0, 127)',
+    orangered: 'rgb(255, 69, 0)',
+    orange: 'rgb(255, 165, 0)',
+    yellow: 'rgb(255, 255, 0)',
+    chartreuse: 'rgb(127, 255, 0)',
+    mediumspringgreen: 'rgb(0, 250, 154)',
+    royalblue: 'rgb(65, 105, 225)',
+    aqua: 'rgb(0, 255, 255)',
+    deepskyblue: 'rgb(0, 191, 255)',
+    blue: 'rgb(0, 0, 255)',
+    fuchsia: 'rgb(255, 0, 255)',
+    khaki: 'rgb(240, 230, 140)',
+    salmon: 'rgb(250, 128, 114)',
+    plum: 'rgb(221, 160, 221)',
+    deeppink: 'rgb(255, 20, 147)',
+    // Preset Colors.
+    red: 'hex(#ffa500)',
+    orange2: 'rgb(255, 159, 64)',
+    yellow2: 'rgb(255, 205, 86)',
     green: 'rgb(75, 192, 192)',
-    blue: 'rgb(54, 162, 235)',
+    blue2: 'rgb(54, 162, 235)',
     purple: 'rgb(153, 102, 255)',
     grey: 'rgb(201, 203, 207)',
-    aqua: 'rgb(0,255,255)',
+    aqua2: 'rgb(0,255,255)',
     beige: 'rgb(245,245,220)',
-    sienna: 'rgb(160,82,45)',
     black: 'rgb(0,0,0)',
     lime: 'rgb((0,255,0)',
     golden: 'rgb(218,165,32)',
@@ -21,9 +42,12 @@ var MONTHS = ['0','1','2','3','4','5','6','7','8','9','10'];
 var config = {
     type: 'line',
     data: {
-        labels: ['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18'],
+        labels: ['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30'],
     },
     options: {
+        legend: {
+            display: true
+        },
         responsive: true,
         title: {
             display: true,
@@ -32,6 +56,20 @@ var config = {
         tooltips: {
             mode: 'index',
             intersect: false,
+            callbacks: {
+                itemSort: function(tooltipItem,data){
+                    var items = [];
+                    var index =1;
+                    while(index<=20)
+                    {
+                        var x = data.datasets[tooltipItem.datasetIndex].yLabel;
+                        items.push(x);
+                        index++;
+                    } 
+                    items.sort();
+                    return items;
+                } 
+            },
         },
         hover: {
             mode: 'nearest',
@@ -49,7 +87,7 @@ var config = {
                 display: true,
                 ticks: {
                     min: 800,
-                    stepValue: 50,
+                    stepSize: 25,
                     max:1200
                 },
                 scaleLabel: {

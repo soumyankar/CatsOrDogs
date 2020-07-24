@@ -20,7 +20,9 @@
 
     <!-- My Scripts. -->
     <script type="text/javascript" src="js/matchmaking.js"></script>
-    <script type="text/javascript" src="js/ui.js"></script>
+    <script type="text/javascript" src="js/ignition.js"></script>
+    <script type="text/javascript" src="js/elo.js"></script>
+    <script type="text/javascript" src="js/commit_data.js"></script>
     <!-- Styling Components -->
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -77,15 +79,16 @@
             <div class="container">
                 <h1>Welcome to Cats Or Dogs!</h1>
                 <p>This website will demonstrate the usage of the Arpad Élo Algorithm, and we will be experimenting on Cats and Dogs! </p>
-                <p>Some more statements about how it works, how I have approached this topic. How I am going to acheive this. </p>
+                <p>Arpad Élo devised an algorithm to rate chess players back in the 1900s, but today you and I are going to use it to rate dogs and cats.</p>
+                <p>Every model has a rating and the system will adjust itself depending on it's matchup. The objective of this project is to observe the journey of elo ratings and how they adjust themselves through their lifetime. If you'd like to observe and not play, move on to: <a href="graphs.html">Data Graphs</a> </p>
 
                 <div class="line"></div>
-                <button onclick="showstuff(); Battle();" id="toggle" style="display: block;">Begin!</button>
+                <button onclick="ignition();" id="toggle" style="display: block;">Begin!</button>
                 <!-- Content -->
                 <div  id="playground" style="display: none;">
                     <h2 >Let the battle begin!</h2>
                     <p>Pretty straightforward: Click on the animal that's cuter!</p>
-                    <p>Please do not leave the battle in-progress! It will entirely ruin my DB.</p>
+                    <p style="font-style: italic;">(And remember! No favouritism -  i.e, stop clicking on dogs.😆)</p>
                     <div class="row">
                         <div class="col-sm-6">
                           <button onclick="elo_change(1); Battle();"><img id="player1-picture" src="https://via.placeholder.com/650" style="max-width: 350px; max-height: 350px"></button>

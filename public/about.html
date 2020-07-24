@@ -75,71 +75,40 @@
                 </div>
             </nav>
             <div class="container">
-                <h1>Welcome to Cats Or Dogs!</h1>
-                <p>This website will demonstrate the usage of the Arpad Élo Algorithm, and we will be experimenting on Cats and Dogs! </p>
-                <p>Some more statements about how it works, how I have approached this topic. How I am going to acheive this. </p>
+                <p>Maybe I'll fill in this section, when this mini project shows some promise.</p>
+            </div>
+            <div class="overlay"></div>
+            <p id="load"><i>Firebase SDK Loading&hellip;</i></p>
+            <!-- jQuery CDN -->
+            <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+            <!-- Bootstrap Js CDN -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <!-- jQuery Custom Scroller CDN -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
-                <div class="line"></div>
-                <button onclick="showstuff(); Battle();" id="toggle" style="display: block;">Begin!</button>
-                <!-- Content -->
-                <div  id="playground" style="display: none;">
-                    <h2 >Let the battle begin!</h2>
-                    <p>Pretty straightforward: Click on the animal that's cuter!</p>
-                    <p>Please do not leave the battle in-progress! It will entirely ruin my DB.</p>
-                    <div class="row">
-                        <div class="col-sm-6">
-                          <button onclick="elo_change(1); Battle();"><img id="player1-picture" src="https://via.placeholder.com/650" style="max-width: 350px; max-height: 350px"></button>
-                          <p id="player1-name"></p>
-                          <p id="player1-breed"></p>
-                      </div>
-                      <div class="col-sm-6">
-                          <button onclick="elo_change(0); Battle();"><img  id="player2-picture" src="https://via.placeholder.com/350" style="max-width: 350px; max-height: 350px"></button>
-                          <p id="player2-name"></p>
-                          <p id="player2-breed"></p>
-                      </div>
-                  </div>
-                  <p id="load"><i>Firebase SDK Loading&hellip;</i></p>
-              </div>
-              <div id="end" style="display: none;">
-                  <p>Thank you! Head on over to <a href="graphs.html">graphs</a> and see see how people are rating the models!</p>
-              </div>
-          </div>
-      </div>
-  </div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $("#sidebar").mCustomScrollbar({
+                        theme: "minimal"
+                    });
 
-  <div class="overlay"></div>
+                    $('#dismiss, .overlay').on('click', function () {
+                        $('#sidebar').removeClass('active');
+                        $('.overlay').fadeOut();
+                    });
 
+                    $('#sidebarCollapse').on('click', function () {
+                        $('#sidebar').addClass('active');
+                        $('.overlay').fadeIn();
+                        $('.collapse.in').toggleClass('in');
+                        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+                    });
+                });
+            </script>
+            <!-- Do not mess with anything beyond this point. -->
 
-  <!-- jQuery CDN -->
-  <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-  <!-- Bootstrap Js CDN -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <!-- jQuery Custom Scroller CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-        $("#sidebar").mCustomScrollbar({
-            theme: "minimal"
-        });
-
-        $('#dismiss, .overlay').on('click', function () {
-            $('#sidebar').removeClass('active');
-            $('.overlay').fadeOut();
-        });
-
-        $('#sidebarCollapse').on('click', function () {
-            $('#sidebar').addClass('active');
-            $('.overlay').fadeIn();
-            $('.collapse.in').toggleClass('in');
-            $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-        });
-    });
-</script>
-<!-- Do not mess with anything beyond this point. -->
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
+            <script>
+              document.addEventListener('DOMContentLoaded', function() {
         // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
         // // The Firebase SDK is initialized and available here!
         //
